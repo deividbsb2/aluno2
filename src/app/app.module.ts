@@ -1,8 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {AppComponent} from './app.component';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 import {
     MatButtonModule,
     MatCheckboxModule,
@@ -16,10 +17,14 @@ import {
     MatExpansionModule,
     MatFormFieldModule
 } from '@angular/material';
-import {NavigationComponent} from './navigation/navigation.component';
-import {LayoutModule} from '@angular/cdk/layout';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { NewsletterService } from './newsletter.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,6 +35,7 @@ import { OfertasComponent } from './ofertas/ofertas.component';
     imports: [
         BrowserModule,
         NoopAnimationsModule,
+        HttpClientModule,
         FlexLayoutModule,
         MatButtonModule,
         MatCheckboxModule,
@@ -42,9 +48,11 @@ import { OfertasComponent } from './ofertas/ofertas.component';
         MatCardModule,
         MatMenuModule,
         MatExpansionModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        AppRoutingModule,
+        ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     ],
-    providers: [],
+    providers: [NewsletterService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
