@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatButtonModule,
     MatCheckboxModule,
@@ -15,8 +16,13 @@ import {
     MatCardModule,
     MatMenuModule,
     MatExpansionModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatRadioModule
 } from '@angular/material';
+
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -25,17 +31,21 @@ import { OfertasComponent } from './ofertas/ofertas.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NewsletterService } from './newsletter.service';
+import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
 @NgModule({
     declarations: [
         AppComponent,
         NavigationComponent,
         DashboardComponent,
-        OfertasComponent
+        OfertasComponent,
+        DadosPessoaisComponent
     ],
     imports: [
         BrowserModule,
         NoopAnimationsModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         FlexLayoutModule,
         MatButtonModule,
         MatCheckboxModule,
@@ -49,6 +59,10 @@ import { NewsletterService } from './newsletter.service';
         MatMenuModule,
         MatExpansionModule,
         MatFormFieldModule,
+        MatInputModule,
+        MatSlideToggleModule,
+        MatSelectModule,
+        MatRadioModule,
         AppRoutingModule,
         ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     ],

@@ -1,0 +1,127 @@
+<div class="grid-container">
+  <form novalidate>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Dados Pessoais
+        </mat-card-title>
+        <mat-card-subtitle>Informações do aluno</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Cor/Raça" required>
+              <mat-option></mat-option>
+              <mat-option value="1">Branca</mat-option>
+              <mat-option value="2">Preta</mat-option>
+              <mat-option value="3">Parda</mat-option>
+              <mat-option value="4">Amarela</mat-option>
+              <mat-option value="5">Indigena</mat-option>
+              <mat-option value="6">Sem Informação</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="CEP" required>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="UF" required>
+              <mat-option></mat-option>
+              <mat-option *ngFor="let uf of ufs" [value]="uf.id">{{uf.nome}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Município" required>
+              <mat-option></mat-option>
+              <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">{{municipio.nome}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Tipo Logradouro" required>
+              <mat-option></mat-option>
+              <mat-option value="1">Rua</mat-option>
+              <mat-option value="2">Quadra</mat-option>
+              <mat-option value="3">Lote</mat-option>
+              <mat-option value="4">Parque</mat-option>
+              <mat-option value="5">Passarela</mat-option>
+              <mat-option value="6">Outros</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Logradouro" required>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Número" required>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Complemento">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Bairro" required>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Telefone Fixo" required>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Telefone Alternativo">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Telefone Celular">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Telefone Celular Alternativo">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="E-mail" required>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="E-mail Alternativo">
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+          <mat-slide-toggle required (change)="jaFezIngles()">Já fez curso de Inglês?</mat-slide-toggle>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Quantos anos?" required [disabled]="fezIngles">
+              <mat-option></mat-option>
+              <mat-option value="1">Até 1 ano</mat-option>
+              <mat-option value="2">De 1 a 2</mat-option>
+              <mat-option value="3">De 2 a 3</mat-option>
+              <mat-option value="4">De 3 a 4</mat-option>
+              <mat-option value="5">Acima de 4</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Formação em curso" required>
+              <mat-option></mat-option>
+              <mat-option value="1">Graduação</mat-option>
+              <mat-option value="2">Pós Graduação Stricto Sensu Mestrado Acadêmico</mat-option>
+              <mat-option value="3">Pós Graduação Stricto Sensu Mestrado Profissional</mat-option>
+              <mat-option value="4">Pós Graduação Stricto Sensu Dotourado</mat-option>
+              <mat-option value="5">Português para Estrangeiro</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Área de Conhecimento" required>
+              <mat-option></mat-option>
+              <mat-option value="1">Ciências agrárias</mat-option>
+              <mat-option value="2">Ciências biológicas</mat-option>
+              <mat-option value="3">Ciências ambientais</mat-option>
+              <mat-option value="4">Construção civil</mat-option>
+              <mat-option value="5">Compra e venda</mat-option>
+              <mat-option value="6">Engenharia</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent">Voltar</button>
+        <button mat-raised-button color="primary">Salvar</button>
+        <button mat-raised-button>Limpar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

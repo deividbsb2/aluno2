@@ -19,15 +19,26 @@ export class DashboardComponent {
       .then(sub => {
         this.sub = sub;
         console.log('Notification Subscription: ', sub);
-        this.newsletterService.addPushSubscriber(sub).subscribe(
-          () => console.log('Sent push subscription object to server.'),
-          err => console.log('Could not send subscription object to server, reason: ', err)
-        );
+        // this.newsletterService.addPushSubscriber(sub).subscribe(
+        //  () => console.log('Sent push subscription object to server.'),
+        //  err => console.log('Could not send subscription object to server, reason: ', err)
+        // );
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
   sendNewsletter() {
-    console.log('Sending Newsletter to all Subscribers ...');
-    this.newsletterService.send().subscribe();
+    console.log(this.swPush.isEnabled + ' Sending Newsletter to all Subscribers ...');
+    // this.newsletterService.send().subscribe();
+  }
+  subscription() {
+    this.swPush.subscription.subscribe(c => c.unsubscribe().then(u => console.log(u)));
+  }
+
+  messages() {
+    this.swPush.messages.subscribe(x => console.log(x));
+  }
+
+  unsubscribe() {
+    this.swPush.unsubscribe().then(s => console.log(s));
   }
 }
