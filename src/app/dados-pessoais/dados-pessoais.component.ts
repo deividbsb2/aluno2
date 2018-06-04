@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { environment } from '../../environments/environment';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -7,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadosPessoaisComponent implements OnInit {
   fezIngles = false;
+  pessoaForm: FormGroup;
   ufs = [
     { id: 1, nome: 'AC' },
     { id: 2, nome: 'AL' },
@@ -57,12 +62,48 @@ export class DadosPessoaisComponent implements OnInit {
     { id: 18, nome: 'Acajutiba' },
     { id: 19, nome: 'Acará' }
   ];
-  constructor() { }
+  constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
+    this.pessoaForm = new FormGroup({
+      corRaca: new FormControl('', Validators.required),
+      cep: new FormControl('', Validators.required),
+      uf: new FormControl('', Validators.required),
+      municipio: new FormControl('', Validators.required),
+      tipoLogradouro: new FormControl('', Validators.required),
+      logradouro: new FormControl('', Validators.required),
+      numero: new FormControl('', Validators.required),
+      complemento: new FormControl(),
+      bairro: new FormControl('', Validators.required),
+      telFixo: new FormControl('', Validators.required),
+      telAlternativo: new FormControl(),
+      celular: new FormControl(),
+      celularAlternativo: new FormControl(),
+      email: new FormControl('', Validators.required),
+      emailAlternativo: new FormControl(),
+      anosCursados: new FormControl({ value: '', disabled: true }, this.fezIngles ? Validators.required : Validators.nullValidator),
+      formacao: new FormControl('', Validators.required),
+      areaConhecimento: new FormControl('', Validators.required)
+    });
   }
 
-  jaFezIngles() {
-    this.fezIngles = !this.fezIngles;
+  jaFezIngles(event: any) {
+    if (event.checked) {
+      this.pessoaForm.get('anosCursados').enable();
+    } else {
+      this.pessoaForm.get('anosCursados').setValue('');
+      this.pessoaForm.get('anosCursados').disable();
+    }
+  }
+
+  getMessageError(campo: string) {
+    return this.pessoaForm.get(campo).hasError('required') ? 'Campo obrigatório.' : '';
+  }
+
+  salvar() {
+    this.snackBar.open('Dados salvos com sucesso!', 'Fechar', {
+      duration: 3000,
+    });
+    this.router.navigate(['/']);
   }
 }

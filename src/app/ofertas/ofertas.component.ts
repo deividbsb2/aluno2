@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { SwPush } from '@angular/service-worker';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-ofertas',
     templateUrl: './ofertas.component.html',
-    styleUrls: ['./ofertas.component.css']
+    styleUrls: ['./ofertas.component.scss']
 })
 export class OfertasComponent implements OnInit {
-    cards = [
-        { title: 'Card 1', cols: 1, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 1 },
-        { title: 'Card 4', cols: 1, rows: 1 },
-        { title: 'Card 5', cols: 1, rows: 1 },
-        { title: 'Card 6', cols: 1, rows: 1 }
-    ];
-
-    constructor() { }
+    onOver = false;
+    constructor(private router: Router) { }
 
     ngOnInit() {
+    }
+
+    overCard() {
+        this.onOver = !this.onOver;
+    }
+
+    goToTurmas() {
+        this.router.navigate(['/turmas']);
     }
 }

@@ -8,3 +8,9 @@ body {
 .grid-container {
     margin: 0.5%;
 }
+.more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+

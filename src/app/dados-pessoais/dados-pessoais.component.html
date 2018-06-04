@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <form novalidate>
+  <form novalidate [formGroup]="pessoaForm" (ngSubmit)="salvar()">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -8,9 +8,9 @@
         <mat-card-subtitle>Informações do aluno</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%">
           <mat-form-field fxFlex>
-            <mat-select placeholder="Cor/Raça" required>
+            <mat-select placeholder="Cor/Raça" formControlName="corRaca" required>
               <mat-option></mat-option>
               <mat-option value="1">Branca</mat-option>
               <mat-option value="2">Preta</mat-option>
@@ -19,24 +19,29 @@
               <mat-option value="5">Indigena</mat-option>
               <mat-option value="6">Sem Informação</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('corRaca')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <input matInput placeholder="CEP" required>
+              <mat-label>CEP</mat-label>
+            <input matInput placeholder="00000-000" formControlName="cep" required>
+            <mat-error>{{getMessageError('cep')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <mat-select placeholder="UF" required>
+            <mat-select placeholder="UF" required formControlName="uf">
               <mat-option></mat-option>
               <mat-option *ngFor="let uf of ufs" [value]="uf.id">{{uf.nome}}</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('uf')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <mat-select placeholder="Município" required>
+            <mat-select placeholder="Município" required formControlName="municipio">
               <mat-option></mat-option>
               <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">{{municipio.nome}}</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('municipio')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <mat-select placeholder="Tipo Logradouro" required>
+            <mat-select placeholder="Tipo Logradouro" formControlName="tipoLogradouro" required>
               <mat-option></mat-option>
               <mat-option value="1">Rua</mat-option>
               <mat-option value="2">Quadra</mat-option>
@@ -45,47 +50,63 @@
               <mat-option value="5">Passarela</mat-option>
               <mat-option value="6">Outros</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('tipoLogradouro')}}</mat-error>
           </mat-form-field>
         </div>
 
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%">
           <mat-form-field fxFlex>
-            <input matInput placeholder="Logradouro" required>
+            <mat-label>Logradouro</mat-label>
+            <input matInput placeholder="Logradouro" formControlName="logradouro" required>
+            <mat-error>{{getMessageError('logradouro')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <input matInput placeholder="Número" required>
+              <mat-label>Número</mat-label>
+            <input matInput placeholder="Número" formControlName="numero" required>
+            <mat-error>{{getMessageError('numero')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
+              <mat-label>Complemento</mat-label>
             <input matInput placeholder="Complemento">
           </mat-form-field>
           <mat-form-field fxFlex>
-            <input matInput placeholder="Bairro" required>
+              <mat-label>Bairro</mat-label>
+            <input matInput placeholder="Bairro" formControlName="bairro" required>
+            <mat-error>{{getMessageError('bairro')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <input matInput placeholder="Telefone Fixo" required>
-          </mat-form-field>
-        </div>
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
-          <mat-form-field fxFlex>
-            <input matInput placeholder="Telefone Alternativo">
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input matInput placeholder="Telefone Celular">
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input matInput placeholder="Telefone Celular Alternativo">
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input matInput placeholder="E-mail" required>
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input matInput placeholder="E-mail Alternativo">
+              <mat-label>Telefone Fixo</mat-label>
+            <input matInput placeholder="(00) 0 0000-0000" formControlName="telFixo" required>
+            <mat-error>{{getMessageError('telFixo')}}</mat-error>
           </mat-form-field>
         </div>
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
-          <mat-slide-toggle required (change)="jaFezIngles()">Já fez curso de Inglês?</mat-slide-toggle>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%">
           <mat-form-field fxFlex>
-            <mat-select placeholder="Quantos anos?" required [disabled]="fezIngles">
+              <mat-label>Telefone Alternativo</mat-label>
+            <input matInput placeholder="(00) 0 0000-0000" formControlName="telAlternativo">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+              <mat-label>Telefone Celular</mat-label>
+            <input matInput placeholder="(00) 0 0000-0000" formControlName="celular">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+              <mat-label>Telefone Celular Alternativo</mat-label>
+            <input matInput placeholder="(00) 0 0000-0000" formControlName="celularAlternativo">
+          </mat-form-field>
+          <mat-form-field fxFlex>
+              <mat-label>E-mail</mat-label>
+            <input matInput placeholder="exemplo@exemplo.com" formControlName="email" required>
+            <mat-error>{{getMessageError('email')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+              <mat-label>E-mail Alternativo</mat-label>
+            <input matInput placeholder="exemplo@exemplo.com" formControlName="emailAlternativo">
+          </mat-form-field>
+        </div>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%">
+          <mat-slide-toggle required (change)="jaFezIngles($event)">Já fez curso de Inglês?</mat-slide-toggle>
+          <mat-form-field fxFlex>
+            <mat-select placeholder="Quantos anos?" required formControlName="anosCursados">
               <mat-option></mat-option>
               <mat-option value="1">Até 1 ano</mat-option>
               <mat-option value="2">De 1 a 2</mat-option>
@@ -93,9 +114,10 @@
               <mat-option value="4">De 3 a 4</mat-option>
               <mat-option value="5">Acima de 4</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('anosCursados')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <mat-select placeholder="Formação em curso" required>
+            <mat-select placeholder="Formação em curso" formControlName="formacao" required>
               <mat-option></mat-option>
               <mat-option value="1">Graduação</mat-option>
               <mat-option value="2">Pós Graduação Stricto Sensu Mestrado Acadêmico</mat-option>
@@ -103,9 +125,10 @@
               <mat-option value="4">Pós Graduação Stricto Sensu Dotourado</mat-option>
               <mat-option value="5">Português para Estrangeiro</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('formacao')}}</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-            <mat-select placeholder="Área de Conhecimento" required>
+            <mat-select placeholder="Área de Conhecimento" formControlName="areaConhecimento" required>
               <mat-option></mat-option>
               <mat-option value="1">Ciências agrárias</mat-option>
               <mat-option value="2">Ciências biológicas</mat-option>
@@ -114,13 +137,14 @@
               <mat-option value="5">Compra e venda</mat-option>
               <mat-option value="6">Engenharia</mat-option>
             </mat-select>
+            <mat-error>{{getMessageError('areaConhecimento')}}</mat-error>
           </mat-form-field>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="accent">Voltar</button>
-        <button mat-raised-button color="primary">Salvar</button>
-        <button mat-raised-button>Limpar</button>
+        <a mat-raised-button color="accent" routerLink="/">Voltar</a>
+        <button mat-raised-button color="primary" [disabled]="pessoaForm.invalid">Salvar</button>
+        <button mat-raised-button type="reset">Limpar</button>
       </mat-card-actions>
     </mat-card>
   </form>

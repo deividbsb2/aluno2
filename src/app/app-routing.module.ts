@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
+import { TurmasComponent } from './turmas/turmas.component';
 
  const routes: Routes = [
     {
@@ -16,6 +17,10 @@ import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.componen
     {
         path: 'dados-pessoais',
         component: DadosPessoaisComponent
+    },
+    {
+        path: 'turmas',
+        component: TurmasComponent
     }
 ];
 

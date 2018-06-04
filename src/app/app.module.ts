@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatButtonModule,
@@ -20,7 +20,9 @@ import {
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule,
+    MatRippleModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,17 +34,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NewsletterService } from './newsletter.service';
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
+import { TurmasComponent } from './turmas/turmas.component';
 @NgModule({
     declarations: [
         AppComponent,
         NavigationComponent,
         DashboardComponent,
         OfertasComponent,
-        DadosPessoaisComponent
+        DadosPessoaisComponent,
+        TurmasComponent
     ],
     imports: [
         BrowserModule,
         NoopAnimationsModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
@@ -63,6 +68,8 @@ import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.componen
         MatSlideToggleModule,
         MatSelectModule,
         MatRadioModule,
+        MatSnackBarModule,
+        MatRippleModule,
         AppRoutingModule,
         ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     ],
