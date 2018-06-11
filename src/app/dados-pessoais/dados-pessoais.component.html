@@ -1,12 +1,9 @@
+<mat-toolbar color="primary">
+    <h2>DADOS PESSOAIS</h2>
+  </mat-toolbar>
 <div class="grid-container">
   <form novalidate [formGroup]="pessoaForm" (ngSubmit)="salvar()">
     <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Dados Pessoais
-        </mat-card-title>
-        <mat-card-subtitle>Informações do aluno</mat-card-subtitle>
-      </mat-card-header>
       <mat-card-content>
         <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%">
           <mat-form-field fxFlex>
@@ -142,8 +139,8 @@
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <a mat-raised-button color="accent" routerLink="/">Voltar</a>
-        <button mat-raised-button color="primary" [disabled]="pessoaForm.invalid">Salvar</button>
+        <a mat-raised-button color="primary" routerLink="/">Voltar</a>
+        <button mat-raised-button color="accent" [disabled]="pessoaForm.invalid">Salvar</button>
         <button mat-raised-button type="reset">Limpar</button>
       </mat-card-actions>
     </mat-card>

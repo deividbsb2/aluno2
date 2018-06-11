@@ -22,7 +22,9 @@ import {
     MatSlideToggleModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTabsModule,
+    MatTableModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +37,7 @@ import { environment } from '../environments/environment';
 import { NewsletterService } from './newsletter.service';
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
 import { TurmasComponent } from './turmas/turmas.component';
+import { TurmaComponent } from './turma/turma.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,7 +45,8 @@ import { TurmasComponent } from './turmas/turmas.component';
         DashboardComponent,
         OfertasComponent,
         DadosPessoaisComponent,
-        TurmasComponent
+        TurmasComponent,
+        TurmaComponent
     ],
     imports: [
         BrowserModule,
@@ -70,6 +74,8 @@ import { TurmasComponent } from './turmas/turmas.component';
         MatRadioModule,
         MatSnackBarModule,
         MatRippleModule,
+        MatTabsModule,
+        MatTableModule,
         AppRoutingModule,
         ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     ],

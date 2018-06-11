@@ -1,0 +1,317 @@
+<mat-toolbar [color]="type">
+  <h2>Turmas</h2>
+</mat-toolbar>
+<mat-tab-group [color]="type">
+  <mat-tab label="Disponíveis">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Turma #1
+            </mat-panel-title>
+            <mat-panel-description>
+              QCE: B2
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+            <p>
+              Campus:<br>Nome Campus
+            </p>
+            <p>
+              Modalidade:<br>Nome Modalidade
+            </p>
+            <p>
+              Data Ínicio:<br>30/04/2018
+            </p>
+            <p>
+              Data Fim:<br>29/05/2018
+            </p>
+            <p>
+              Carga Horária:<br>16 horas
+            </p>
+            <p>
+              Professor:<br>Nome Professor
+            </p>
+            <p>
+              Curso:<br>Nome Curso
+            </p>
+            <p>
+              Ementa:<br>Descrição Ementa
+            </p>
+          </div>
+          <p class="mat-display-5">Encontros</p>
+          <div fxLayout="row">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlexFill>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N°. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Dia </th>
+                <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horário </th>
+                <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-action-row>
+            <button mat-raised-button color="primary">Inscrever</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Turma #2
+            </mat-panel-title>
+            <mat-panel-description>
+              QCE: A2
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+            <p>
+              Campus:<br>Nome Campus
+            </p>
+            <p>
+              Modalidade:<br>Nome Modalidade
+            </p>
+            <p>
+              Data Ínicio:<br>30/04/2018
+            </p>
+            <p>
+              Data Fim:<br>29/05/2018
+            </p>
+            <p>
+              Carga Horária:<br>16 horas
+            </p>
+            <p>
+              Professor:<br>Nome Professor
+            </p>
+            <p>
+              Curso:<br>Nome Curso
+            </p>
+            <p>
+              Ementa:<br>Descrição Ementa
+            </p>
+          </div>
+          <p class="mat-display-5">Encontros</p>
+          <div fxLayout="row">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlexFill>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N°. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Dia </th>
+                <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+              </ng-container>
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horário </th>
+                <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-action-row>
+            <button mat-raised-button color="primary">Inscrever</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Turma #3
+            </mat-panel-title>
+            <mat-panel-description>
+              QCE: A2
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+            <p>
+              Campus:<br>Nome Campus
+            </p>
+            <p>
+              Modalidade:<br>Nome Modalidade
+            </p>
+            <p>
+              Data Ínicio:<br>30/04/2018
+            </p>
+            <p>
+              Data Fim:<br>29/05/2018
+            </p>
+            <p>
+              Carga Horária:<br>16 horas
+            </p>
+            <p>
+              Professor:<br>Nome Professor
+            </p>
+            <p>
+              Curso:<br>Nome Curso
+            </p>
+            <p>
+              Ementa:<br>Descrição Ementa
+            </p>
+          </div>
+          <p class="mat-display-5">Encontros</p>
+          <div fxLayout="row">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlexFill>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N°. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Dia </th>
+                <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+              </ng-container>
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horário </th>
+                <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-action-row>
+            <button mat-raised-button color="primary">Inscrever</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+
+  </mat-tab>
+  <mat-tab label="Incrições">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Turma #3
+            </mat-panel-title>
+            <mat-panel-description>
+              QCE: B2
+            </mat-panel-description>
+            <mat-panel-description>
+                1º Opção
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+            <p>
+              Campus:<br>Nome Campus
+            </p>
+            <p>
+              Modalidade:<br>Nome Modalidade
+            </p>
+            <p>
+              Data Ínicio:<br>30/04/2018
+            </p>
+            <p>
+              Data Fim:<br>29/05/2018
+            </p>
+            <p>
+              Carga Horária:<br>16 horas
+            </p>
+            <p>
+              Professor:<br>Nome Professor
+            </p>
+            <p>
+              Curso:<br>Nome Curso
+            </p>
+            <p>
+              Ementa:<br>Descrição Ementa
+            </p>
+          </div>
+          <p class="mat-display-5">Encontros</p>
+          <div fxLayout="row">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlexFill>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N°. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Dia </th>
+                <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+              </ng-container>
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horário </th>
+                <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-action-row>
+            <button mat-raised-button color="warn">Cancelar</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelIOpenState = true" (closed)="panelIOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Turma #4
+            </mat-panel-title>
+            <mat-panel-description>
+              QCE: A2
+            </mat-panel-description>
+            <mat-panel-description>
+              2º Opção
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+            <p>
+              Campus:<br>Nome Campus
+            </p>
+            <p>
+              Modalidade:<br>Nome Modalidade
+            </p>
+            <p>
+              Data Ínicio:<br>30/04/2018
+            </p>
+            <p>
+              Data Fim:<br>29/05/2018
+            </p>
+            <p>
+              Carga Horária:<br>16 horas
+            </p>
+            <p>
+              Professor:<br>Nome Professor
+            </p>
+            <p>
+              Curso:<br>Nome Curso
+            </p>
+            <p>
+              Ementa:<br>Descrição Ementa
+            </p>
+          </div>
+          <p class="mat-display-5">Encontros</p>
+          <div fxLayout="row">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" fxFlexFill>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N°. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Dia </th>
+                <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+              </ng-container>
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horário </th>
+                <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-action-row>
+            <button mat-raised-button color="warn">Cancelar</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

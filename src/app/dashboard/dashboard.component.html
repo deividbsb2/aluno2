@@ -1,32 +1,33 @@
+<mat-toolbar color="primary">
+  <h2 class="mat-h2">NOTIFICAÇÕES</h2>
+</mat-toolbar>
 <div class="grid-container">
-  <h1 class="mat-h1">Notificar</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile>
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Notificação
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div fxLayoutAlign="space-evenly center">
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="primary" (click)="subscribeToNotifications()">Subscribe</button>
-          <button mat-button color="warn" (click)="sendNewsletter()">Send</button>
-          <button mat-button color="accent" (click)="subscription()">Subscription</button>
-          <button mat-button (click)="messages()">Messages</button>
-          <button mat-button color="primary" (click)="unsubscribe()">Unsubscribe</button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <form [formGroup]="notifyForm">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>Expand</button>
+            <button mat-menu-item>Remove</button>
+          </mat-menu>
+        </mat-card-title>
+        <mat-card-subtitle>Informe a mensagem da notificação</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayoutAlign="space-between">
+          <mat-form-field fxFlex="30">
+            <input matInput required placeholder="Mensagem" formControlName="mensagem">
+            <mat-error>Mensagem é obrigatorio.</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="subscribeToNotifications()">Subscribe</button>
+        <button mat-button color="accent" (click)="sendNewsletter()" [disabled]="notifyForm.invalid">Send</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>

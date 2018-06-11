@@ -14,7 +14,7 @@ export class NewsletterService {
     return this.http.post(this.api + '/api/notifications', sub);
   }
 
-  send() {
-    return this.http.post(this.api + '/api/newsletter', null);
+  send(mensagem: any) {
+    return this.http.post(this.api + '/api/newsletter', mensagem);
   }
 }

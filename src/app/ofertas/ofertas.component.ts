@@ -7,17 +7,20 @@ import { Router } from '@angular/router';
     styleUrls: ['./ofertas.component.scss']
 })
 export class OfertasComponent implements OnInit {
-    onOver = false;
+    onOver = '';
     constructor(private router: Router) { }
 
     ngOnInit() {
     }
 
-    overCard() {
-        this.onOver = !this.onOver;
+    overCard(card: string) {
+        this.onOver = card;
+    }
+    outCard() {
+        this.onOver = '';
     }
 
-    goToTurmas() {
-        this.router.navigate(['/turmas']);
+    goToTurmas(type: string) {
+        this.router.navigate(['/turma/' + type]);
     }
 }

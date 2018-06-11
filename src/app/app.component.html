@@ -1,9 +1,7 @@
-<mat-toolbar class="mat-elevation-z4" color="primary">
-    <a routerLink="/">
-        <img src="../assets/img/logo-sem-nome.png" [width]="(isHandset | async).matches ? 60 : 70"
-         [height]="(isHandset | async).matches ? 50 : 60" title="IDIOMAS SEM FRONTEIRAS">
-        </a>
-    <h1 class="mat-h1">IDIOMAS SEM FRONTEIRAS</h1>
+<mat-toolbar class="mat-elevation-z4">
+    <img src="../assets/img/logo-sem-nome.png" [width]="(isHandset | async).matches ? 60 : 70" [height]="(isHandset | async).matches ? 50 : 60"
+        title="IDIOMAS SEM FRONTEIRAS" style="cursor: pointer;" (click)="goToHome()">
+    <h1 class="mat-h1"  style="cursor: pointer;" (click)="goToHome()">IDIOMAS SEM FRONTEIRAS</h1>
     <span class="toolbar-space"></span>
     <div [fxHide]="(isHandset | async).matches">
         <button mat-button [matMenuTriggerFor]="perfil">
@@ -33,10 +31,10 @@
                     <mat-card-subtitle>joao@email.com</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    CPF:&nbsp;000.000.000-00<br>
-                    QCE: 2<br>
-                    Último acesso:&nbsp;06/02/2018 09:15<br>
-                    Versão:&nbsp;1.0.0
+                    CPF:&nbsp;000.000.000-00
+                    <br> QCE: C1
+                    <br> Último acesso:&nbsp;06/02/2018 09:15
+                    <br> Versão:&nbsp;1.0.0
                 </mat-card-content>
                 <mat-card-actions>
                     <button mat-button color="accent">
@@ -80,8 +78,7 @@
         <mat-expansion-panel-header>
             <mat-panel-title fxLayoutAlign="center center">
                 <div mat-card-avatar class="header-image"></div>
-                &nbsp;
-                João da Silva
+                &nbsp; João da Silva
             </mat-panel-title>
             <mat-panel-description fxLayoutAlign="center center">
                 email@email.com
@@ -89,7 +86,7 @@
         </mat-expansion-panel-header>
         <div fxLayout="column" fxLayoutGap="2px">
             <span class="mat-caption">CPF:&nbsp;000.000.000-00</span>
-            <span class="mat-caption">QCE: 2</span>
+            <span class="mat-caption">QCE: C1</span>
             <span class="mat-caption">Último acesso:&nbsp;06/02/2018 09:15</span>
         </div>
     </mat-expansion-panel>

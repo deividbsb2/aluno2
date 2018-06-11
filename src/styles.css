@@ -3,7 +3,6 @@
 
 body {
     margin: 0;
-    background-color: #e9f3f5 ;
 }
 .grid-container {
     margin: 0.5%;
@@ -13,4 +12,7 @@ body {
     top: 5px;
     right: 10px;
 }
-
+.mat-success {
+    background-color: green;
+    color: #fff;
+}

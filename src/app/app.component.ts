@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -11,7 +12,7 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent implements OnInit {
     panelOpenState = false;
     isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
-    constructor(private breakpointObserver: BreakpointObserver, private swUpdate: SwUpdate) {
+    constructor(private breakpointObserver: BreakpointObserver, private swUpdate: SwUpdate, private router: Router) {
     }
 
     ngOnInit() {
@@ -22,5 +23,9 @@ export class AppComponent implements OnInit {
                 }
             });
         }
+    }
+
+    goToHome() {
+        this.router.navigate(['/']);
     }
 }

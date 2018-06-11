@@ -4,10 +4,12 @@ import { OfertasComponent } from './ofertas/ofertas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
 import { TurmasComponent } from './turmas/turmas.component';
+import { TurmaComponent } from './turma/turma.component';
 
- const routes: Routes = [
+const routes: Routes = [
+    { path: '', redirectTo: '/ofertas', pathMatch: 'full' },
     {
-        path: '',
+        path: 'ofertas',
         component: OfertasComponent
     },
     {
@@ -21,6 +23,10 @@ import { TurmasComponent } from './turmas/turmas.component';
     {
         path: 'turmas',
         component: TurmasComponent
+    },
+    {
+        path: 'turma/:type',
+        component: TurmaComponent
     }
 ];
 
